@@ -17,7 +17,8 @@ const Category = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://localhost:3001/api/category/${letter}`);
+        // 使用环境变量中的API地址
+        const response = await fetch(`${process.env.REACT_APP_API_URL}/api/category/${letter}`);
         if (!response.ok) throw new Error('Failed to fetch data');
         const data = await response.json();
         setEntries(data);
@@ -71,4 +72,4 @@ const Category = () => {
   );
 };
 
-export default Category;
+export default Category;  
